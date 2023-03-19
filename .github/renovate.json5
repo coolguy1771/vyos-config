@@ -9,12 +9,9 @@
     ":automergeDigest",
     ":automergeBranch",
     "github>coolguy1771/renovate-config",
-    "github>coolguy1771/renovate-config:automerge-github-actions",
+    "github>coolguy1771/renovate-config:automerge-github-actions"
   ],
   "platform": "github",
-  "username": "lumiere-bot[bot]",
-  "gitAuthor": "lumiere-bot <98047013+lumiere-bot[bot]@users.noreply.github.com>",
-  "repositories": ["coolguy1771/vyos-config"],
   "regexManagers": [
     {
       "description": ["Generic Docker image Regex manager"],
@@ -25,7 +22,7 @@
         "set container name .* image '?(?<depName>.*?):(?<currentValue>[^'\n]*=?)'?"
       ],
       "datasourceTemplate": "docker"
-    },
+    }
   ],
   "packageRules": []
 }
