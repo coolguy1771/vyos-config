@@ -99,7 +99,7 @@ set container name smtp-relay environment SMTP_PASSWORD value "${SECRET_SMTP_REL
 set container name smtp-relay environment SMTP_PORT value '465'
 set container name smtp-relay environment SMTP_SERVER value 'smtp.fastmail.com'
 set container name smtp-relay environment SMTP_USERNAME value 'twitlin@286k.co'
-set container name smtp-relay image 'ghcr.io/foxcpp/maddy:0.6.2'
+set container name smtp-relay image 'ghcr.io/foxcpp/maddy:0.6.3'
 set container name smtp-relay memory '0'
 set container name smtp-relay network containers address '10.10.254.4'
 set container name smtp-relay shared-memory '0'
