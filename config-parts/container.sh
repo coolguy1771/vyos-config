@@ -77,7 +77,7 @@ set container name node-exporter volume node-exporter-sysfs source '/sys'
 
 set container name podman-exporter allow-host-networks
 set container name podman-exporter environment CONTAINER_HOST value 'tcp://10.10.0.1:8888'
-set container name podman-exporter image 'quay.io/navidys/prometheus-podman-exporter:v1.2.0'
+set container name podman-exporter image 'quay.io/navidys/prometheus-podman-exporter:v1.3.0'
 set container name podman-exporter memory '0'
 set container name podman-exporter shared-memory '0'
 
