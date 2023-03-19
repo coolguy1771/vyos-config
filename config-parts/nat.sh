@@ -1,0 +1,22 @@
+#!/bin/vbash
+
+# NAT
+set nat destination rule 100 description 'HTTPS'
+set nat destination rule 100 destination port '443'
+set nat destination rule 100 inbound-interface 'eth0'
+set nat destination rule 100 protocol 'tcp'
+set nat destination rule 100 translation address '10.0.42.2'
+set nat destination rule 100 translation port '443'
+set nat destination rule 101 description 'HTTP'
+set nat destination rule 101 destination port '80'
+set nat destination rule 101 inbound-interface 'eth0'
+set nat destination rule 101 protocol 'tcp'
+set nat destination rule 101 translation address '10.0.42.2'
+set nat destination rule 102 destination port '2456-2457,27015,27031-27036'
+set nat destination rule 102 inbound-interface 'eth0'
+set nat destination rule 102 protocol 'udp'
+set nat destination rule 102 translation address '10.10.10.52'
+set nat source rule 100 description 'LAN -> WAN'
+set nat source rule 100 destination address '0.0.0.0/0'
+set nat source rule 100 outbound-interface 'eth0'
+set nat source rule 100 translation address 'masquerade'
