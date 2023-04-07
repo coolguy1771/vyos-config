@@ -13,6 +13,8 @@ set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 lease '8640
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 name-server '10.10.254.2'
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 range 0 start '10.10.10.50'
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 range 0 stop '10.10.10.254'
+set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping micro-bmc-0 mac-address '3c:ec:ef:35:c0:74'
+set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping micro-bmc-0 ip-address '10.10.10.70'
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping dell-idrac-0 ip-address '10.10.10.60'
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping dell-idrac-0 mac-address 'f4:8e:38:cc:40:96'
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping dell-idrac-1 ip-address '10.10.10.61'
@@ -66,7 +68,7 @@ set service dhcp-server shared-network-name WIRELESS subnet 10.10.20.0/24 static
 set service dns dynamic interface eth0 service icb host-name 'ipv4.icbplays.net'
 set service dns dynamic interface eth0 service icb host-name 'arma.icbplays.net'
 set service dns dynamic interface eth0 service icb host-name 'valheim.icbplays.net'
-set service dns dynamic interface eth0 service icb login '"${SECRET_CLOUDFLARE_EMAIL}"
+set service dns dynamic interface eth0 service icb login "${SECRET_CLOUDFLARE_EMAIL}"
 set service dns dynamic interface eth0 service icb password "${SECRET_CLOUDFLARE_API_TOKEN}"
 set service dns dynamic interface eth0 service icb protocol 'cloudflare'
 set service dns dynamic interface eth0 service icb server 'api.cloudflare.com/client/v4'
@@ -81,7 +83,7 @@ set service dns dynamic interface eth0 service main zone "${SECRET_PUBLIC_DOMAIN
 
 # DNS Forwarding
 
-set service dns forwarding allow-from '10.10.0.0/24'
+set service dns forwarding allow-from '10.10.0.0/16'
 set service dns forwarding cache-size '0'
 set service dns forwarding listen-address '10.10.0.1'
 set service dns forwarding name-server '1.1.1.1'

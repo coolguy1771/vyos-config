@@ -9,7 +9,7 @@ set registry 'ghcr.io'
 
 # Container networks
 
-set network containers prefix '10.10.254.0/24'
+set container network containers prefix '10.10.254.0/24'
 
 # Coredns
 
@@ -49,10 +49,10 @@ set container name k8s-lb volume k8s-lb-config source '/config/persistence/conta
 
 # Netboot-xyz
 
-set name netboot-xyz allow-host-networks
-set name netboot-xyz image 'ghcr.io/netbootxyz/netbootxyz:0.6.7-nbxyz25'
-set name netboot-xyz memory '0'
-set name netboot-xyz shared-memory '0'
+set container name netboot-xyz allow-host-networks
+set container name netboot-xyz image 'ghcr.io/netbootxyz/netbootxyz:0.6.7-nbxyz25'
+set container name netboot-xyz memory '0'
+set container name netboot-xyz shared-memory '0'
 
 # Node-exporter
 
