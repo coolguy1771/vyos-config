@@ -1,0 +1,114 @@
+web:
+  port: 443
+  tls:
+    certificate-file: /config/certificate.crt
+    private-key-file: /config/certificate.key
+
+storage:
+  type: memory
+
+metrics: true
+
+ui:
+  title: Home Status | Gatus
+  header: Home Status
+
+alerting:
+  pushover:
+    application-token: "${SECRET_PUSHOVER_APP_TOKEN}"
+    user-key: "${SECRET_PUSHOVER_USER_KEY}"
+    default-alert:
+      description: healthcheck failed
+      send-on-resolved: false
+      failure-threshold: 3
+      success-threshold: 5
+
+endpoints:
+  #
+  # Heartbeat
+  #
+  - name: Heartbeat
+    group: Gatus
+    url:
+    interval: 5m
+    conditions: ["[STATUS] == 200"]
+  #
+  # DNS
+  #
+  - name: external-dns
+    group: DNS
+    url: 10.10.254.2
+    dns:
+      query-name: google.com
+      query-type: A
+    conditions: ["[DNS_RCODE] == NOERROR"]
+  - name: internal-dns
+    group: DNS
+    url: 10.10.254.2
+    dns:
+      query-name: vyos.286k.co
+      query-type: A
+    conditions: ["[BODY] == 10.10.0.1", "[DNS_RCODE] == NOERROR"]
+  #
+  # Devices group
+  #
+  - name: Dell iDRAC 0 (ICMP)
+    group: Devices
+    url: icmp://10.10.10.60
+    conditions: ["[CONNECTED] == true"]
+    alerts: [{ type: pushover }]
+  - name: Dell iDRAC 1 (ICMP)
+    group: Devices
+    url: icmp://10.10.10.61
+    conditions: ["[CONNECTED] == true"]
+    alerts: [{ type: pushover }]
+  - name: Supermicro BMC 0 (ICMP)
+    group: Devices
+    url: icmp://10.10.10.70
+    conditions: ["[CONNECTED] == true"]
+    alerts: [{ type: pushover }]
+  - name: HP iLO 0 (ICMP)
+    group: Devices
+    url: icmp://10.10.10.65
+    conditions: ["[CONNECTED] == true"]
+    alerts: [{ type: pushover }]
+  - name: Kubernetes Node 0 (ICMP)
+    group: Devices
+    url: icmp://10.10.10.20
+    conditions: ["[CONNECTED] == true"]
+    alerts: [{ type: pushover }]
+  - name: Kubernetes Node 1 (ICMP)
+    group: Devices
+    url: icmp://10.10.10.21
+    conditions: ["[CONNECTED] == true"]
+    alerts: [{ type: pushover }]
+  - name: Kubernetes Node 2 (ICMP)
+    group: Devices
+    url: icmp://10.10.10.22
+    conditions: ["[CONNECTED] == true"]
+    alerts: [{ type: pushover }]
+  - name: Kubernetes Node 3 (ICMP)
+    group: Devices
+    url: icmp://10.10.10.23
+    conditions: ["[CONNECTED] == true"]
+    alerts: [{ type: pushover }]
+  - name: Kubernetes Node 4 (ICMP)
+    group: Devices
+    url: icmp://10.10.10.24
+    conditions: ["[CONNECTED] == true"]
+    alerts: [{ type: pushover }]
+  - name: Kubernetes Node 5 (ICMP)
+    group: Devices
+    url: icmp://10.10.10.25
+    conditions: ["[CONNECTED] == true"]
+    alerts: [{ type: pushover }]
+  - name: Kubernetes Node 6 (ICMP)
+    group: Devices
+    url: icmp://10.10.10.26
+    conditions: ["[CONNECTED] == true"]
+    alerts: [{ type: pushover }]
+  - name: NAS (ICMP)
+    group: Devices
+    url: icmp://10.10.10.50
+    conditions: ["[CONNECTED] == true"]
+    alerts: [{ type: pushover }]
