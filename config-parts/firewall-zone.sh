@@ -12,7 +12,7 @@ set firewall zone containers from local firewall name 'local-containers'
 set firewall zone containers from wan firewall name 'wan-containers'
 set firewall zone containers from wireguard firewall name 'wireguard-containers'
 set firewall zone containers from wireless firewall name 'wireless-containers'
-set firewall zone containers interface 'cni-containers'
+set firewall zone containers interface 'pod-containers'
 
 # Guest zone
 set firewall zone guest default-action 'drop'

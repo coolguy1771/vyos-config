@@ -1,12 +1,13 @@
 #!/bin/vbash
 
 # Interfaces
+set interfaces ethernet eth0 hw-id '3c:ec:ef:c3:80:74'
 set interfaces ethernet eth0 address 'dhcp'
 set interfaces ethernet eth0 description 'WAN'
-set interfaces ethernet eth0 hw-id '3c:ec:ef:c3:80:74'
+
+set interfaces ethernet eth1 hw-id '3c:ec:ef:c3:80:75'
 set interfaces ethernet eth1 address '10.10.0.1/24'
 set interfaces ethernet eth1 description 'LAN'
-set interfaces ethernet eth1 hw-id '3c:ec:ef:c3:80:75'
 
 # VLANs
 set interfaces ethernet eth1 vif 10 address '10.10.10.1/24'
@@ -22,4 +23,5 @@ set interfaces wireguard wg80 description 'WIREGUARD'
 set interfaces wireguard wg80 peer tylers-laptop allowed-ips '10.10.80.10/32'
 set interfaces wireguard wg80 peer tylers-laptop persistent-keepalive '15'
 set interfaces wireguard wg80 peer tylers-laptop public-key '8Hn6rVDytAdava6seZ1rs6omRDE/hDtipLYfOwbLzX8='
+set interfaces wireguard wg80 port '51820'
 set interfaces wireguard wg80 private-key "${SECRET_WIREGUARD_PRIVATE_KEY}"
