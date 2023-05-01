@@ -21,10 +21,10 @@ set container name coredns shared-memory '0'
 set container name coredns restart 'on-failure'
 set container name coredns volume coredns-corefile destination '/Corefile'
 set container name coredns volume coredns-corefile mode 'ro'
-set container name coredns volume coredns-corefile source '/config/persistence/containers/coredns/config/Corefile'
+set container name coredns volume coredns-corefile source '/config/containers/coredns/config/Corefile'
 set container name coredns volume coredns-hosts destination '/config/hosts'
 set container name coredns volume coredns-hosts mode 'ro'
-set container name coredns volume coredns-hosts source '/config/persistence/containers/coredns/config/hosts'
+set container name coredns volume coredns-hosts source '/config/containers/coredns/config/hosts'
 
 # Frr_exporter
 
@@ -45,7 +45,7 @@ set container name k8s-lb network containers address '10.10.254.3'
 set container name k8s-lb shared-memory '0'
 set container name k8s-lb volume k8s-lb-config destination '/usr/local/etc/haproxy/haproxy.cfg'
 set container name k8s-lb volume k8s-lb-config mode 'ro'
-set container name k8s-lb volume k8s-lb-config source '/config/persistence/containers/k8s-lb/config/haproxy.cfg'
+set container name k8s-lb volume k8s-lb-config source '/config/containers/k8s-lb/config/haproxy.cfg'
 
 # Netboot-xyz
 
@@ -105,7 +105,7 @@ set container name smtp-relay network containers address '10.10.254.4'
 set container name smtp-relay shared-memory '0'
 set container name smtp-relay volume smtp-relay-config destination '/data/maddy.conf'
 set container name smtp-relay volume smtp-relay-config mode 'ro'
-set container name smtp-relay volume smtp-relay-config source '/config/persistence/containers/smtp-relay/config/maddy.conf'
+set container name smtp-relay volume smtp-relay-config source '/config/containers/smtp-relay/config/maddy.conf'
 
 # Vnstat
 set container name vnstat allow-host-networks
