@@ -1,4 +1,5 @@
 creation_rules:
   - path_regex: .*\.sops\.env
     age: >-
-      age1986cspgjd7xhdwfwmyplc5jsjk43gewedu7s3sr7gwwhrdp7rgzq6t4ax9
+      age1986cspgjd7xhdwfwmyplc5jsjk43gewedu7s3sr7gwwhrdp7rgzq6t4ax9,
+      age1rm2af0v4wg78fymmhd7d3ptktzga5sqgnustgljw3rw5hfuckams8tegzw
