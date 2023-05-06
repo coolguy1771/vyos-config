@@ -45,5 +45,6 @@ dnsdist                   IN  A  10.10.254.8
 
 ; CNAME records
 s3                        IN  CNAME  osiris.286k.co.
+minio                     IN  CNAME  osiris.286k.co.
 kopia                     IN  CNAME  osiris.286k.co.
 stash                     IN  CNAME  osiris.286k.co.
