@@ -2,29 +2,42 @@
 
 # Container registries
 
-set registry 'docker.io'
-set registry 'quay.io'
-set registry 'public.ecr.aws'
-set registry 'ghcr.io'
+set container registry 'docker.io'
+set container registry 'quay.io'
+set container registry 'public.ecr.aws'
+set container registry 'ghcr.io'
 
 # Container networks
 
 set container network containers prefix '10.10.254.0/24'
 
-# Coredns
+# bind
+set container name bind cap-add 'net-bind-service'
+set container name bind image 'docker.io/internetsystemsconsortium/bind9:9.19'
+set container name bind command '/usr/sbin/named -4 -f -c /etc/bind/named.conf -u bind'
+set container name bind memory '0'
+set container name bind network services address '10.10.254.2'
+set container name bind restart 'on-failure'
+set container name bind shared-memory '0'
+set container name bind volume config destination '/etc/bind'
+set container name bind volume config source '/config/containers/bind/config'
+set container name bind volume config mode 'ro'
+set container name bind volume cache source '/tmp/bind/cache'
+set container name bind volume cache destination '/var/cache/bind'
+set container name bind volume cache mode 'rw'
 
-set container name coredns cap-add 'net-bind-service'
-set container name coredns image 'registry.k8s.io/coredns/coredns:v1.10.1'
-set container name coredns memory '0'
-set container name coredns network containers address '10.10.254.2'
-set container name coredns shared-memory '0'
-set container name coredns restart 'on-failure'
-set container name coredns volume coredns-corefile destination '/Corefile'
-set container name coredns volume coredns-corefile mode 'ro'
-set container name coredns volume coredns-corefile source '/config/containers/coredns/config/Corefile'
-set container name coredns volume coredns-hosts destination '/config/hosts'
-set container name coredns volume coredns-hosts mode 'ro'
-set container name coredns volume coredns-hosts source '/config/containers/coredns/config/hosts'
+# dnsdist
+set container name dnsdist cap-add 'net-bind-service'
+set container name dnsdist environment TZ value 'America/New_York'
+set container name dnsdist image 'docker.io/powerdns/dnsdist-18:1.8.0'
+set container name dnsdist arguments '--log-timestamps'
+set container name dnsdist memory '0'
+set container name dnsdist network services address '10.10.254.8'
+set container name dnsdist restart 'on-failure'
+set container name dnsdist shared-memory '0'
+set container name dnsdist volume config source '/config/containers/dnsdist/config/dnsdist.conf'
+set container name dnsdist volume config destination '/etc/dnsdist/dnsdist.conf'
+set container name dnsdist volume config mode 'ro'
 
 # Frr_exporter
 
@@ -160,3 +173,10 @@ set container name gatus volume gatus-certificate-crt mode 'ro'
 set container name gatus volume gatus-certificate-key source '/config/secrets/certificate.key'
 set container name gatus volume gatus-certificate-key destination '/config/certificate.key'
 set container name gatus volume gatus-certificate-key mode 'ro'
+
+# speedtest-exporter
+set container name speedtest-exporter image 'ghcr.io/miguelndecarvalho/speedtest-exporter:v3.5.3'
+set container name speedtest-exporter memory '0'
+set container name speedtest-exporter allow-host-networks
+set container name speedtest-exporter restart 'on-failure'
+set container name speedtest-exporter shared-memory '0'

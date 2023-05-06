@@ -1,0 +1,49 @@
+; Make sure to update the epoch time in the SOA records so coreDNS picks up the changes automatically
+; https://www.epochconverter.com/
+
+; SOA Records
+$TTL 3600
+$ORIGIN 286k.co.
+@ 3600 IN SOA vyos.286k.co. vyos.286k.co. (
+  1682790096         ; serial number (epoch timestamp)
+  7200               ; refresh period
+  3600               ; retry period
+  1209600            ; expire time
+  3600               ; minimum ttl
+)
+
+; NS Records
+@                          IN  NS vyos.286k.co.
+
+; LAN
+gateway                    IN  A  10.10.0.1
+
+; Wireless
+printer                    IN  A  10.10.20.51
+
+; Servers
+k8s-0                      IN  A  10.10.10.20
+k8s-0                      IN  A  10.10.10.21
+k8s-2                      IN  A  10.10.10.22
+k8s-3                      IN  A  10.10.10.23
+k8s-4                      IN  A  10.10.10.24
+k8s-5                      IN  A  10.10.10.25
+k8s-6                      IN  A  10.10.10.26
+osiris                     IN  A  10.10.10.50
+icb-01                     IN  A  10.10.10.52
+dell-idrac-0               IN  A  10.10.10.60
+dell-idrac-1               IN  A  10.10.10.61
+micro-bmc-0                IN  A  10.10.10.65
+hp-ilo-0                   IN  A  10.10.10.70
+
+; Containers
+dns                       IN  A  10.10.254.2
+k8s-lb                    IN  A  10.10.254.3
+smtp-relay                IN  A  10.10.254.4
+status                    IN  A  10.10.254.7
+dnsdist                   IN  A  10.10.254.8
+
+; CNAME records
+s3                        IN  CNAME  osiris.286k.co.
+kopia                     IN  CNAME  osiris.286k.co.
+stash                     IN  CNAME  osiris.286k.co.

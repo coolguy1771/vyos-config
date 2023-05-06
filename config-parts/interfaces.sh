@@ -24,4 +24,4 @@ set interfaces wireguard wg80 peer tylers-laptop allowed-ips '10.10.80.10/32'
 set interfaces wireguard wg80 peer tylers-laptop persistent-keepalive '15'
 set interfaces wireguard wg80 peer tylers-laptop public-key '8Hn6rVDytAdava6seZ1rs6omRDE/hDtipLYfOwbLzX8='
 set interfaces wireguard wg80 port '51820'
-set interfaces wireguard wg80 private-key "${SECRET_WIREGUARD_PRIVATE_KEY}"
+set interfaces wireguard wg80 private-key "${SECRET_INTERFACE_WIREGUARD_KEY}"
