@@ -42,7 +42,7 @@ set container name dnsdist volume config mode 'ro'
 # Frr_exporter
 
 set container name frr-exporter allow-host-networks
-set container name frr-exporter image 'docker.io/tynany/frr_exporter:v1.1.4'
+set container name frr-exporter image 'docker.io/tynany/frr_exporter:v1.2.0'
 set container name frr-exporter memory '0'
 set container name frr-exporter shared-memory '0'
 set container name frr-exporter volume frr-exporter-varfs destination '/var/run/frr'
