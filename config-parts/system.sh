@@ -38,5 +38,6 @@ set system syslog global facility protocols level 'debug'
 set system syslog host 10.0.42.6 facility all level 'all'
 set system syslog host 10.0.42.6 facility all protocol 'udp'
 set system syslog host 10.0.42.6 port '6020'
+set system syslog host 10.0.42.6 format 'octet-counted'
 
 set system time-zone 'America/New_York'
