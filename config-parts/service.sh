@@ -10,9 +10,9 @@ set service dns dynamic interface eth0 service icb password "${SECRET_CLOUDFLARE
 set service dns dynamic interface eth0 service icb protocol 'cloudflare'
 set service dns dynamic interface eth0 service icb server 'api.cloudflare.com/client/v4'
 set service dns dynamic interface eth0 service icb zone 'icbplays.net'
-set service dns dynamic interface eth0 service main host-name "ipv4.${SECRET_PUBLIC_DOMAIN}"
+set service dns dynamic interface eth0 service main host-name "ingress.${SECRET_PUBLIC_DOMAIN}"
 set service dns dynamic interface eth0 service main host-name "wg.${SECRET_PUBLIC_DOMAIN}"
-set service dns dynamic interface eth0 service main login 'tylerwitlin@gmail.com'
+set service dns dynamic interface eth0 service main login "${SECRET_CLOUDFLARE_EMAIL}"
 set service dns dynamic interface eth0 service main password "${SECRET_CLOUDFLARE_API_TOKEN}"
 set service dns dynamic interface eth0 service main protocol 'cloudflare'
 set service dns dynamic interface eth0 service main server 'api.cloudflare.com/client/v4'
