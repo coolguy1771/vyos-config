@@ -52,7 +52,7 @@ set container name frr-exporter volume frr-exporter-varfs source '/var/run/frr'
 # K8s-lb
 
 set container name k8s-lb cap-add 'net-bind-service'
-set container name k8s-lb image 'public.ecr.aws/docker/library/haproxy:2.7.6-alpine'
+set container name k8s-lb image 'public.ecr.aws/docker/library/haproxy:2.7.8-alpine'
 set container name k8s-lb memory '0'
 set container name k8s-lb network containers address '10.10.254.3'
 set container name k8s-lb shared-memory '0'
