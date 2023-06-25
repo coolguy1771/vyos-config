@@ -1,22 +1,5 @@
 #!/bin/vbash
 
-# DNS
-  #DDNS
-set service dns dynamic interface eth0 service icb host-name 'ipv4.icbplays.net'
-set service dns dynamic interface eth0 service icb host-name 'arma.icbplays.net'
-set service dns dynamic interface eth0 service icb host-name 'valheim.icbplays.net'
-set service dns dynamic interface eth0 service icb login "${SECRET_CLOUDFLARE_EMAIL}"
-set service dns dynamic interface eth0 service icb password "${SECRET_CLOUDFLARE_API_TOKEN}"
-set service dns dynamic interface eth0 service icb protocol 'cloudflare'
-set service dns dynamic interface eth0 service icb server 'api.cloudflare.com/client/v4'
-set service dns dynamic interface eth0 service icb zone 'icbplays.net'
-set service dns dynamic interface eth0 service main host-name "wg.${SECRET_PUBLIC_DOMAIN}"
-set service dns dynamic interface eth0 service main login "${SECRET_CLOUDFLARE_EMAIL}"
-set service dns dynamic interface eth0 service main password "${SECRET_CLOUDFLARE_API_TOKEN}"
-set service dns dynamic interface eth0 service main protocol 'cloudflare'
-set service dns dynamic interface eth0 service main server 'api.cloudflare.com/client/v4'
-set service dns dynamic interface eth0 service main zone "${SECRET_PUBLIC_DOMAIN}"
-
 # DNS Forwarding
 
 set service dns forwarding allow-from '10.10.0.0/16'

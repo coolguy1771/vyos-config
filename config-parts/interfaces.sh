@@ -27,4 +27,4 @@ set interfaces wireguard wg80 peer tyler-phone allowed-ips '10.10.80.11/32'
 set interfaces wireguard wg80 peer tyler-phone persistent-keepalive '15'
 set interfaces wireguard wg80 peer tyler-phone public-key '6Pnj8U6HJaJ7Fm+YXVt68Vkg8PHXc/7AsBhMKcuyJQc='
 set interfaces wireguard wg80 port '51820'
-set interfaces wireguard wg80 private-key "${SECRET_INTERFACE_WIREGUARD_KEY}"
+set interfaces wireguard wg80 private-key ${SECRET_INTERFACE_WIREGUARD_KEY}

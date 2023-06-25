@@ -108,7 +108,7 @@ set container name smartctl-exporter volume smartctl-exporter-devfs source '/dev
 # Smtp-relay
 
 set container name smtp-relay environment SMTP_DOMAIN value '286k.co'
-set container name smtp-relay environment SMTP_PASSWORD value "${SECRET_SMTP_RELAY_KEY}"
+set container name smtp-relay environment SMTP_PASSWORD value ${SECRET_SMTP_RELAY_KEY}
 set container name smtp-relay environment SMTP_PORT value '465'
 set container name smtp-relay environment SMTP_SERVER value 'smtp.fastmail.com'
 set container name smtp-relay environment SMTP_USERNAME value 'twitlin@286k.co'

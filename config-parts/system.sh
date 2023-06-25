@@ -16,8 +16,8 @@ set system conntrack modules tftp
 set system console device ttyS0 speed '115200'
 
 # Login
-set system login user twitlin authentication public-keys twitlin@janet key 'AAAAC3NzaC1lZDI1NTE5AAAAIPnKXgEGczcu8lGs+DEvRWgI4cSYHkAyTAU6/SMAHjL4'
-set system login user twitlin authentication public-keys twitlin@janet type 'ssh-ed25519'
+set system login user vyos authentication public-keys twitlin@janet key 'AAAAC3NzaC1lZDI1NTE5AAAAIPnKXgEGczcu8lGs+DEvRWgI4cSYHkAyTAU6/SMAHjL4'
+set system login user vyos authentication public-keys twitlin@janet type 'ssh-ed25519'
 
 # Logging
 set system logs logrotate messages
