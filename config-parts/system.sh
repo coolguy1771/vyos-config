@@ -23,7 +23,7 @@ set system login user twitlin authentication public-keys twitlin@janet type 'ssh
 set system logs logrotate messages
 
 # Name Server
-set system name-server '10.10.254.2'
+set system name-server '1.1.1.1'
 
 # System Options
 set system option reboot-on-panic

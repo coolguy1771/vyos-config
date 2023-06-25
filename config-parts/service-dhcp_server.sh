@@ -1,6 +1,15 @@
 #!/bin/vbash
 
-# LAB_NET
+# Guest Vlan
+set service dhcp-server shared-network-name GUEST authoritative
+set service dhcp-server shared-network-name GUEST ping-check
+set service dhcp-server shared-network-name GUEST subnet 10.10.30.0/24 default-router '10.10.30.1'
+set service dhcp-server shared-network-name GUEST subnet 10.10.30.0/24 lease '86400'
+set service dhcp-server shared-network-name GUEST subnet 10.10.30.0/24 name-server '10.10.254.2'
+set service dhcp-server shared-network-name GUEST subnet 10.10.30.0/24 range 0 start '10.10.30.50'
+set service dhcp-server shared-network-name GUEST subnet 10.10.30.0/24 range 0 stop '10.10.30.254'
+
+# LAB Vlan
 
 set service dhcp-server shared-network-name LAB authoritative
 set service dhcp-server shared-network-name LAB ping-check
@@ -12,6 +21,7 @@ set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 lease '8640
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 name-server '10.10.254.2'
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 range 0 start '10.10.10.50'
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 range 0 stop '10.10.10.254'
+
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping micro-bmc-0 mac-address '3c:ec:ef:35:c0:74'
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping micro-bmc-0 ip-address '10.10.10.70'
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping dell-idrac-0 ip-address '10.10.10.60'
@@ -36,8 +46,10 @@ set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapp
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping k8s-6 mac-address '6c:4b:90:4e:19:c8'
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping osiris ip-address '10.10.10.50'
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping osiris mac-address '66:bb:4f:76:56:4e'
+set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping pikvm ip-address '10.10.10.91'
+set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping pikvm mac-address 'e4:5f:01:e4:69:f8'
 
-#LAN_NET
+# Lan Vlan
 
 set service dhcp-server shared-network-name LAN authoritative
 set service dhcp-server shared-network-name LAN ping-check
@@ -49,7 +61,10 @@ set service dhcp-server shared-network-name LAN subnet 10.10.0.0/24 lease '86400
 set service dhcp-server shared-network-name LAN subnet 10.10.0.0/24 range 0 start '10.10.0.50'
 set service dhcp-server shared-network-name LAN subnet 10.10.0.0/24 range 0 stop '10.10.0.254'
 
-#WIRELESS_NET
+set service dhcp-server shared-network-name LAN subnet 10.10.0.0/24 static-mapping core-sw-0 ip-address '10.10.0.2'
+set service dhcp-server shared-network-name LAN subnet 10.10.0.0/24 static-mapping core-sw-0 mac-address '88:6f:d4:e3:3c:93'
+
+# Wireless Vlan
 
 set service dhcp-server shared-network-name WIRELESS authoritative
 set service dhcp-server shared-network-name WIRELESS ping-check

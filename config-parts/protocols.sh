@@ -1,7 +1,6 @@
 #!/bin/vbash
 
-# BGP
-
+# BGP Configuration
 set protocols bgp neighbor 10.10.10.20 address-family ipv4-unicast
 set protocols bgp neighbor 10.10.10.20 description 'k8s-0'
 set protocols bgp neighbor 10.10.10.20 remote-as '64512'
