@@ -3,8 +3,9 @@
 # applied. Any modifications required to work around unfixed bugs or use
 # services not available through the VyOS CLI system can be placed here.
 
+if [ -d "/home/vyos" ]; then
 # Add dotfiles for home directory
-tee /home/vyos/.gitconfig <<END
+tee /home/vyos/.gitconfig <<END >/dev/null
 [init]
   defaultBranch = main
 [safe]
@@ -13,14 +14,17 @@ tee /home/vyos/.gitconfig <<END
   email = twitlin@witl.xyz
   name = Tyler Witlin
 END
-#
-tee -a /home/vyos/.bash_aliases <<END
+chown vyos:users /home/vyos/.gitconfig
+
+tee -a /home/vyos/.bash_aliases <<END >/dev/null
 export SOPS_AGE_KEY_FILE=/config/secrets/age.key
 export GIT_SSH_COMMAND="ssh -i /config/secrets/id_ed25519"
 export VISUAL=vim
 export EDITOR=vim
 alias podman="sudo podman"
 END
+chown vyos:users /home/vyos/.bash_aliases
+fi
 
 podman system service --time=0 tcp://10.10.0.1:8888 > /dev/null 2>&1 &
 #

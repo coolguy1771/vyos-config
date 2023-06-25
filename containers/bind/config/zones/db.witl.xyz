@@ -18,3 +18,4 @@ $ORIGIN witl.xyz.
 ; Services
 onepassword-connect        IN  A 10.10.254.5
 onepassword-sync           IN  A 10.10.254.6
+home                       IN  A 10.10.0.1
