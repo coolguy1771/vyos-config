@@ -33,8 +33,8 @@ osiris                     IN  A  10.10.10.50
 icb-01                     IN  A  10.10.10.52
 dell-idrac-0               IN  A  10.10.10.60
 dell-idrac-1               IN  A  10.10.10.61
-micro-bmc-0                IN  A  10.10.10.65
-hp-ilo-0                   IN  A  10.10.10.70
+hp-ilo-0                   IN  A  10.10.10.65
+micro-bmc-0                IN  A  10.10.10.70
 
 ; Containers
 dns                       IN  A  10.10.254.2
