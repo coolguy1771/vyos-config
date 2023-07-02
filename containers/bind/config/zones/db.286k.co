@@ -16,10 +16,13 @@ $ORIGIN 286k.co.
 @                          IN  NS vyos.286k.co.
 
 ; LAN
-vyos                    IN  A  10.10.0.1
+vyos                       IN  A  10.10.0.1
 
 ; Wireless
 printer                    IN  A  10.10.20.51
+
+; BGP
+ldap                       IN  A 10.0.42.3
 
 ; Servers
 k8s-0                      IN  A  10.10.10.20
