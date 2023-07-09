@@ -11,6 +11,36 @@ set container registry 'ghcr.io'
 
 set container network containers prefix '10.10.254.0/24'
 
+# cloudflare-ddns
+set container name cloudflare-ddns allow-host-networks
+set container name cloudflare-ddns environment CF_API_TOKEN value "${SECRET_CLOUDFLARE_TOKEN}"
+set container name cloudflare-ddns environment DOMAINS value 'home.witl.xyz,wg.witl.xyz,ipv4.icbplays.net'
+set container name cloudflare-ddns environment TZ value 'America/New_York'
+set container name cloudflare-ddns environment PGID value "1000"
+set container name cloudflare-ddns environment PUID value "1000"
+set container name cloudflare-ddns image 'docker.io/favonia/cloudflare-ddns:1.9.4'
+set container name cloudflare-ddns memory '0'
+set container name cloudflare-ddns restart 'on-failure'
+set container name cloudflare-ddns shared-memory '0'
+
+# wildcard certificate
+set container name lego-auto image 'ghcr.io/bjw-s/lego-auto:v0.1.0'
+set container name lego-auto memory '0'
+set container name lego-auto allow-host-networks
+set container name lego-auto shared-memory '0'
+set container name lego-auto restart 'on-failure'
+set container name lego-auto environment TZ value 'America/New_York'
+set container name lego-auto environment LA_DATADIR value '/config'
+set container name lego-auto environment LA_CACHEDIR value '/config/.cache'
+set container name lego-auto environment LA_EMAIL value 'postmaster@286k.co'
+set container name lego-auto environment LA_PROVIDER value 'cloudflare'
+set container name lego-auto environment LA_DOMAINS value '*.286k.co'
+set container name lego-auto environment CF_DNS_API_TOKEN value "${SECRET_CLOUDFLARE_TOKEN}"
+set container name lego-auto volume datadir source '/config/secrets/certs/_.286k.co'
+set container name lego-auto volume datadir destination '/config'
+set container name lego-auto volume datadir mode 'rw'
+
+
 # bind
 set container name bind cap-add 'net-bind-service'
 set container name bind image 'docker.io/internetsystemsconsortium/bind9:9.19'
@@ -160,17 +190,17 @@ set container name onepassword-sync volume data mode 'rw'
 # gatus
 set container name gatus cap-add 'net-bind-service'
 set container name gatus cap-add 'net-raw'
-set container name gatus image 'ghcr.io/twin/gatus:latest'
+set container name gatus image 'ghcr.io/twin/gatus:v5.4.0'
 set container name gatus memory '0'
 set container name gatus network containers address '10.10.254.7'
 set container name gatus shared-memory '0'
 set container name gatus volume gatus-config source '/config/containers/gatus/config/config.yaml'
 set container name gatus volume gatus-config destination '/config/config.yaml'
 set container name gatus volume gatus-config mode 'ro'
-set container name gatus volume gatus-certificate-crt source '/config/secrets/certificate.crt'
+set container name gatus volume gatus-certificate-crt source '/config/secrets/certs/_.286k.co/cert.pem'
 set container name gatus volume gatus-certificate-crt destination '/config/certificate.crt'
 set container name gatus volume gatus-certificate-crt mode 'ro'
-set container name gatus volume gatus-certificate-key source '/config/secrets/certificate.key'
+set container name gatus volume gatus-certificate-key source '/config/secrets/certs/_.286k.co/privkey.pem'
 set container name gatus volume gatus-certificate-key destination '/config/certificate.key'
 set container name gatus volume gatus-certificate-key mode 'ro'
 
