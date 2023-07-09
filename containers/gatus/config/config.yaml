@@ -29,7 +29,7 @@ endpoints:
   #
   - name: Heartbeat
     group: Gatus
-    url:
+    url: https://status.286k.co
     interval: 5m
     conditions: ["[STATUS] == 200"]
   #
