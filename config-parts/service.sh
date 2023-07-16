@@ -1,15 +1,5 @@
 #!/bin/vbash
 
-# DNS Forwarding
-
-set service dns forwarding allow-from '10.10.0.0/16'
-set service dns forwarding cache-size '0'
-set service dns forwarding listen-address '10.10.0.1'
-set service dns forwarding name-server '1.1.1.1'
-set service dns forwarding name-server '1.0.0.1'
-set service dns forwarding name-server '8.8.8.8'
-set service dns forwarding name-server '8.8.4.4'
-
 # HTTP API
 set service https api debug
 set service https virtual-host default listen-address '0.0.0.0'

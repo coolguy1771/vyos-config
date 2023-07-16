@@ -1,7 +1,7 @@
 #!/bin/vbash
 
-# Forward Valheim Ports
-set nat destination rule 102 destination port '2456-2457,27015,27031-27036'
+# Forward SE Ports
+set nat destination rule 102 destination port '27016'
 set nat destination rule 102 inbound-interface 'eth0'
 set nat destination rule 102 protocol 'udp'
 set nat destination rule 102 translation address '10.10.10.52'
