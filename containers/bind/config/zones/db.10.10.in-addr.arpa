@@ -29,12 +29,17 @@ $ORIGIN in-addr.arpa.
 24.10.10.10                 IN  PTR  k8s-4.286k.co.
 25.10.10.10                 IN  PTR  k8s-5.286k.co.
 26.10.10.10                 IN  PTR  k8s-6.286k.co.
+27.10.10.10                 IN  PTR  k8s-7.286k.co.
+28.10.10.10                 IN  PTR  k8s-8.286k.co.
+29.10.10.10                 IN  PTR  k8s-9.286k.co.
+30.10.10.10                 IN  PTR k8s-10.286k.co.
 50.10.10.10                 IN  PTR  osiris.286k.co.
 52.10.10.10                 IN  PTR  icb-01.286k.co.
 60.10.10.10                 IN  PTR  dell-idrac-0.286k.co.
 61.10.10.10                 IN  PTR  dell-idrac-1.286k.co.
-65.10.10.10                 IN  PTR  micro-bmc-0.286k.co.
-70.10.10.10                 IN  PTR  hp-ilo-0.286k.co.
+65.10.10.10                 IN  PTR  hp-ilo-0.286k.co.
+66.10.10.10                 IN  PTR  hp-ilo-1.286k.co.
+70.10.10.10                 IN  PTR  micro-bmc-0.286k.co.
 
 ; Containers
 2.254.10.10                IN  PTR  dns.286k.co.

@@ -32,11 +32,29 @@ k8s-3                      IN  A  10.10.10.23
 k8s-4                      IN  A  10.10.10.24
 k8s-5                      IN  A  10.10.10.25
 k8s-6                      IN  A  10.10.10.26
+k8s-7                      IN  A  10.10.10.27
+k8s-8                      IN  A  10.10.10.28
+k8s-9                      IN  A  10.10.10.29
+k8s-10                     IN  A  10.10.10.30
+
+vahd-cp-0                  IN  A 10.10.10.20
+vahd-cp-1                  IN  A 10.10.10.21
+vahd-cp-2                  IN  A 10.10.10.22
+vahd-wr-0                  IN  A 10.10.10.30
+vahd-wr-1                  IN  A 10.10.10.31
+vahd-wr-2                  IN  A 10.10.10.32
+vahd-wr-3                  IN  A 10.10.10.33
+vahd-wr-4                  IN  A 10.10.10.34
+vahd-wr-5                  IN  A 10.10.10.35
+vahd-wr-6                  IN  A 10.10.10.36
+vahd-wr-7                  IN  A 10.10.10.37
+
 osiris                     IN  A  10.10.10.50
 icb-01                     IN  A  10.10.10.52
 dell-idrac-0               IN  A  10.10.10.60
 dell-idrac-1               IN  A  10.10.10.61
 hp-ilo-0                   IN  A  10.10.10.65
+hp-ilo-1                   IN  A  10.10.10.66
 micro-bmc-0                IN  A  10.10.10.70
 
 ; Containers
