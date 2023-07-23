@@ -51,10 +51,10 @@ set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapp
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping k8s-8 ip-address '10.10.10.28'
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping k8s-8 mac-address '6c:4b:90:ee:6a:8c'
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping k8s-9 ip-address '10.10.10.29'
-set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping k8s-9 mac-address '10:98:36:a1:3d:ad'
+set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping k8s-9 mac-address '10:98:36:a1:3d:ae'
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping osiris ip-address '10.10.10.50'
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping osiris mac-address '66:bb:4f:76:56:4e'
-set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping pikvm ip-address '10.10.10.91'
+set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping pikvm ip-address '10.10.10.80'
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapping pikvm mac-address 'e4:5f:01:e4:69:f8'
 
 # Lan Vlan

@@ -56,6 +56,7 @@ dell-idrac-1               IN  A  10.10.10.61
 hp-ilo-0                   IN  A  10.10.10.65
 hp-ilo-1                   IN  A  10.10.10.66
 micro-bmc-0                IN  A  10.10.10.70
+pikvm                      IN  A  10.10.10.80
 
 ; Containers
 dns                       IN  A  10.10.254.2
