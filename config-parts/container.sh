@@ -153,7 +153,7 @@ set container name smtp-relay volume smtp-relay-config source '/config/container
 # Vnstat
 set container name vnstat allow-host-networks
 set container name vnstat environment TZ value 'America/New_York'
-set container name vnstat image 'docker.io/vergoh/vnstat:2.10'
+set container name vnstat image 'docker.io/vergoh/vnstat:2.11'
 set container name vnstat memory '0'
 set container name vnstat shared-memory '0'
 set container name vnstat volume vnstat-data destination '/var/lib/vnstat'
