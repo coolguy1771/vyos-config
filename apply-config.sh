@@ -3,8 +3,8 @@
 # shellcheck source=/dev/null
 dry_run=true
 
-if [ "$(id -g -n)" != 'vyattacfg' ]; then
-  exec sg vyattacfg -c "/bin/vbash $(readlink -f "$0") $@"
+if [ "$(id -g -n)" != 'vyattacfg' ] ; then
+    exec sg vyattacfg -c "/bin/vbash $(readlink -f "$0") $@"
 fi
 
 while getopts "c" options; do
@@ -34,11 +34,8 @@ if [ -f "/config/secrets.sops.env" ]; then
     export "${variableDeclaration//[$'\r\n']/}" # The substitution removes the line breaks
   done
 fi
-if [ -f "/config/settings.env" ]; then
-  source /config/settings.env
-fi
 
-# Apply environment to container files
+# Apply environment to container (configuration) files
 restart_containers=""
 for file in $(find containers -type f -name "*.tmpl"); do
   cfgfile="${file%.tmpl}"
@@ -113,7 +110,9 @@ else
   for container in $restart_containers; do
     run restart container $container
   done
-
-  # Clean annoying overlay* folders
-  sudo find "/config" -name "overlay*" -type d -prune -exec rm -rf "{}" \;
 fi
+
+# Clean annoying overlay* folders
+sudo find "/config" -name "overlay*" -type d -prune -exec rm -rf "{}" \;
+
+exit

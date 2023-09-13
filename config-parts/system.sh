@@ -1,7 +1,12 @@
 #!/bin/vbash
 
-set system domain-name '286k.co'
 set system host-name 'vyos'
+set system domain-name '286k.co'
+set system domain-search domain '286k.co'
+set system login banner pre-login 'All communications and data transiting, traveling to or from, or stored on this system will be monitored. You consent to the unrestricted monitoring, interception, recording, and searching of all communications and data transiting, traveling to or from, or stored on this system at any time and for any purpose and by any person or entity, including government entities. You also consent to the unrestricted disclosure of all communications and data transiting, traveling to or from, or stored on this system at any time and for any purpose to any person or entity, including government entities. You are acknowledging that you have no reasonable expectation of privacy regarding your use of this system. These acknowledgments and consents cover all use of the system, including work-related use and personal use without exception.'
+set system login banner post-login 'Welcome to VyOS'
+
+set system ip multipath layer4-hashing
 
 # Contrack
 set system conntrack modules ftp
@@ -34,7 +39,7 @@ set system sysctl parameter kernel.pty.max value '24000'
 
 # Syslog
 set system syslog global facility all level 'info'
-set system syslog global facility protocols level 'debug'
+set system syslog global facility protocols level 'warning'
 set system syslog host 10.0.42.6 facility all level 'all'
 set system syslog host 10.0.42.6 facility all protocol 'udp'
 set system syslog host 10.0.42.6 port '6020'

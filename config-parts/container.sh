@@ -40,7 +40,6 @@ set container name lego-auto volume datadir source '/config/secrets/certs/_.286k
 set container name lego-auto volume datadir destination '/config'
 set container name lego-auto volume datadir mode 'rw'
 
-
 # bind
 set container name bind cap-add 'net-bind-service'
 set container name bind image 'docker.io/internetsystemsconsortium/bind9:9.19'
@@ -98,7 +97,6 @@ set container name netboot-xyz memory '0'
 set container name netboot-xyz shared-memory '0'
 
 # Node-exporter
-
 set container name node-exporter allow-host-networks
 set container name node-exporter environment procfs value '/host/proc'
 set container name node-exporter environment rootfs value '/rootfs'
@@ -106,15 +104,15 @@ set container name node-exporter environment sysfs value '/host/sys'
 set container name node-exporter image 'quay.io/prometheus/node-exporter:v1.6.1'
 set container name node-exporter memory '0'
 set container name node-exporter shared-memory '0'
+set container name node-exporter volume node-exporter-procfs source '/proc'
 set container name node-exporter volume node-exporter-procfs destination '/host/proc'
 set container name node-exporter volume node-exporter-procfs mode 'ro'
-set container name node-exporter volume node-exporter-procfs source '/proc'
+set container name node-exporter volume node-exporter-rootfs source '/'
 set container name node-exporter volume node-exporter-rootfs destination '/rootfs'
 set container name node-exporter volume node-exporter-rootfs mode 'ro'
-set container name node-exporter volume node-exporter-rootfs source '/'
+set container name node-exporter volume node-exporter-sysfs source '/sys'
 set container name node-exporter volume node-exporter-sysfs destination '/host/sys'
 set container name node-exporter volume node-exporter-sysfs mode 'ro'
-set container name node-exporter volume node-exporter-sysfs source '/sys'
 
 # Podman-exporter
 
@@ -152,13 +150,14 @@ set container name smtp-relay volume smtp-relay-config source '/config/container
 
 # Vnstat
 set container name vnstat allow-host-networks
+set container name vnstat environment EXCLUDE_PATTERN value '^docker|^veth|^br-|^lxc|eth[0123]'
 set container name vnstat environment TZ value 'America/New_York'
-set container name vnstat image 'docker.io/vergoh/vnstat:2.11'
+set container name vnstat image 'ghcr.io/vergoh/vnstat:2.11'
 set container name vnstat memory '0'
 set container name vnstat shared-memory '0'
+set container name vnstat volume vnstat-data source '/config/containers/vnstat'
 set container name vnstat volume vnstat-data destination '/var/lib/vnstat'
 set container name vnstat volume vnstat-data mode 'rw'
-set container name vnstat volume vnstat-data source '/config/containers/vnstat/data'
 
 
 # onepassword-connect
@@ -203,6 +202,8 @@ set container name gatus volume gatus-certificate-crt mode 'ro'
 set container name gatus volume gatus-certificate-key source '/config/secrets/certs/_.286k.co/privkey.pem'
 set container name gatus volume gatus-certificate-key destination '/config/certificate.key'
 set container name gatus volume gatus-certificate-key mode 'ro'
+set container name gatus environment SECRET_PUSHOVER_APP_TOKEN value ${SECRET_PUSHOVER_APP_TOKEN}
+set container name gatus enviorment SECRET_PUSHOVER_USER_KEY value ${SECRET_PUSHOVER_USER_KEY}
 
 # speedtest-exporter
 set container name speedtest-exporter image 'ghcr.io/miguelndecarvalho/speedtest-exporter:v3.5.4'

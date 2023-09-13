@@ -32,7 +32,7 @@ set nat destination rule 106 translation address '10.10.20.1'
 set nat destination rule 106 translation port '123'
 
 
-set nat destination rule 107 description 'Force NTP for Wireguard Trusted'
+set nat destination rule 107 description 'Force NTP for Wireguard'
 set nat destination rule 107 destination address '!10.10.80.1'
 set nat destination rule 107 destination port '123'
 set nat destination rule 107 inbound-interface 'wg80'

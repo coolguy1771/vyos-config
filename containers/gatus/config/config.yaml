@@ -15,8 +15,8 @@ ui:
 
 alerting:
   pushover:
-    application-token: "${SECRET_PUSHOVER_APP_TOKEN}"
-    user-key: "${SECRET_PUSHOVER_USER_KEY}"
+    application-token: ${SECRET_PUSHOVER_APP_TOKEN}
+    user-key: ${SECRET_PUSHOVER_USER_KEY}
     default-alert:
       description: healthcheck failed
       send-on-resolved: false
@@ -105,6 +105,21 @@ endpoints:
   - name: Kubernetes Node 6 (ICMP)
     group: Devices
     url: icmp://10.10.10.26
+    conditions: ["[CONNECTED] == true"]
+    alerts: [{ type: pushover }]
+  - name: Kubernetes Node 7 (ICMP)
+    group: Devices
+    url: icmp://10.10.10.27
+    conditions: ["[CONNECTED] == true"]
+    alerts: [{ type: pushover }]
+  - name: Kubernetes Node 8 (ICMP)
+    group: Devices
+    url: icmp://10.10.10.28
+    conditions: ["[CONNECTED] == true"]
+    alerts: [{ type: pushover }]
+  - name: Kubernetes Node 9 (ICMP)
+    group: Devices
+    url: icmp://10.10.10.29
     conditions: ["[CONNECTED] == true"]
     alerts: [{ type: pushover }]
   - name: NAS (ICMP)

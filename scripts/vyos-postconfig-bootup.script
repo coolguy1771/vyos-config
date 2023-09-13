@@ -5,7 +5,7 @@
 
 if [ -d "/home/vyos" ]; then
 # Add dotfiles for home directory
-tee /home/vyos/.gitconfig <<END >/dev/null
+  tee /home/vyos/.gitconfig <<END >/dev/null
 [init]
   defaultBranch = main
 [safe]
@@ -23,7 +23,7 @@ export VISUAL=vim
 export EDITOR=vim
 alias podman="sudo podman"
 END
-chown vyos:users /home/vyos/.bash_aliases
+  chown vyos:users /home/vyos/.bash_aliases
 fi
 
 podman system service --time=0 tcp://10.10.0.1:8888 > /dev/null 2>&1 &
