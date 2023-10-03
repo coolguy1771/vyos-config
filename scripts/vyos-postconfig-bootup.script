@@ -26,5 +26,5 @@ END
   chown vyos:users /home/vyos/.bash_aliases
 fi
 
-podman system service --time=0 tcp://10.10.0.1:8888 > /dev/null 2>&1 &
+podman system service --time=0 tcp://10.1.237.1:8888 > /dev/null 2>&1 &
 #

@@ -213,9 +213,9 @@ set firewall ipv4 name guest-lab default-action 'accept'
 set firewall ipv4 name guest-lab enable-default-log
 
 # From GUEST to IOT
-set firewall ipv4 name guest-iot description 'From GUEST to IOT'
-set firewall ipv4 name guest-iot default-action 'drop'
-set firewall ipv4 name guest-iot enable-default-log
+set firewall ipv4 name guest-wireless description 'From GUEST to WIRELESS'
+set firewall ipv4 name guest-wireless default-action 'drop'
+set firewall ipv4 name guest-wireless enable-default-log
 
 # From GUEST to LAN
 set firewall ipv4 name guest-lan description 'From GUEST to LAN'
@@ -237,100 +237,86 @@ set firewall ipv4 name guest-services description 'From GUEST to SERVICES'
 set firewall ipv4 name guest-services default-action 'drop'
 set firewall ipv4 name guest-services enable-default-log
 
-# From GUEST to STAGING
-set firewall ipv4 name guest-staging description 'From GUEST to STAGING'
-set firewall ipv4 name guest-staging default-action 'drop'
-set firewall ipv4 name guest-staging enable-default-log
-
-# From GUEST to TRUSTED
-set firewall ipv4 name guest-trusted description 'From GUEST to TRUSTED'
-set firewall ipv4 name guest-trusted default-action 'drop'
-set firewall ipv4 name guest-trusted enable-default-log
-
 # From GUEST to WAN
 set firewall ipv4 name guest-wan description 'From IOT to WAN'
 set firewall ipv4 name guest-wan default-action 'accept'
 
 # From HOMELAB to GUEST
-set firewall ipv4 name homelab-guest description 'From HOMELAB to GUEST'
-set firewall ipv4 name homelab-guest default-action 'drop'
-set firewall ipv4 name homelab-guest enable-default-log
+set firewall ipv4 name lab-guest description 'From HOMELAB to GUEST'
+set firewall ipv4 name lab-guest default-action 'drop'
+set firewall ipv4 name lab-guest enable-default-log
 
 # From HOMELAB to IOT
-set firewall ipv4 name homelab-iot description 'From HOMELAB to IOT'
-set firewall ipv4 name homelab-iot default-action 'accept'
+set firewall ipv4 name lab-iot description 'From HOMELAB to IOT'
+set firewall ipv4 name lab-iot default-action 'accept'
 
 # From HOMELAB to LAN
-set firewall ipv4 name homelab-lan description 'From HOMELAB to LAN'
-set firewall ipv4 name homelab-lan default-action 'drop'
-set firewall ipv4 name homelab-lan enable-default-log
-set firewall ipv4 name homelab-lan rule 140 action 'accept'
-set firewall ipv4 name homelab-lan rule 140 description 'Rule: accept icmp'
-set firewall ipv4 name homelab-lan rule 140 protocol 'icmp'
-set firewall ipv4 name homelab-lan rule 500 action 'accept'
-set firewall ipv4 name homelab-lan rule 500 description 'Rule: accept rtsp'
-set firewall ipv4 name homelab-lan rule 500 destination group address-group 'unifi-unvr'
+set firewall ipv4 name lab-lan description 'From HOMELAB to LAN'
+set firewall ipv4 name lab-lan default-action 'drop'
+set firewall ipv4 name lab-lan enable-default-log
+set firewall ipv4 name lab-lan rule 140 action 'accept'
+set firewall ipv4 name lab-lan rule 140 description 'Rule: accept icmp'
 
 # From HOMELAB to LOCAL
-set firewall ipv4 name homelab-local description 'From HOMELAB to LOCAL'
-set firewall ipv4 name homelab-local default-action 'drop'
-set firewall ipv4 name homelab-local enable-default-log
-set firewall ipv4 name homelab-local rule 100 action 'accept'
-set firewall ipv4 name homelab-local rule 100 description 'Rule: accept ntp'
-set firewall ipv4 name homelab-local rule 100 destination port 'ntp'
-set firewall ipv4 name homelab-local rule 100 protocol 'udp'
-set firewall ipv4 name homelab-local rule 110 action 'accept'
-set firewall ipv4 name homelab-local rule 110 description 'Rule: accept dhcp'
-set firewall ipv4 name homelab-local rule 110 destination port 'bootps,bootpc'
-set firewall ipv4 name homelab-local rule 110 protocol 'udp'
-set firewall ipv4 name homelab-local rule 110 source port 'bootps,bootpc'
-set firewall ipv4 name homelab-local rule 140 action 'accept'
-set firewall ipv4 name homelab-local rule 140 description 'Rule: accept icmp'
-set firewall ipv4 name homelab-local rule 140 protocol 'icmp'
-set firewall ipv4 name homelab-local rule 150 action 'accept'
-set firewall ipv4 name homelab-local rule 150 description 'Rule: accept bgp'
-set firewall ipv4 name homelab-local rule 150 destination port 'bgp'
-set firewall ipv4 name homelab-local rule 150 protocol 'tcp'
-set firewall ipv4 name homelab-local rule 330 action 'accept'
-set firewall ipv4 name homelab-local rule 330 description 'Rule: accept iperf'
-set firewall ipv4 name homelab-local rule 330 destination port '5001'
-set firewall ipv4 name homelab-local rule 330 protocol 'tcp'
-set firewall ipv4 name homelab-local rule 350 action 'accept'
-set firewall ipv4 name homelab-local rule 350 description 'Rule: accept prometheus metrics scrape'
-set firewall ipv4 name homelab-local rule 350 destination group port-group 'prometheus-metrics'
-set firewall ipv4 name homelab-local rule 350 protocol 'tcp'
-set firewall ipv4 name homelab-local rule 450 action 'accept'
-set firewall ipv4 name homelab-local rule 450 description 'Rule: accept_discovery_from_sonos_controllers'
-set firewall ipv4 name homelab-local rule 450 destination port '1900,1901,1902,57621'
-set firewall ipv4 name homelab-local rule 450 protocol 'udp'
-set firewall ipv4 name homelab-local rule 450 source group address-group 'sonos-controllers'
-set firewall ipv4 name homelab-local rule 910 action 'drop'
-set firewall ipv4 name homelab-local rule 910 description 'Rule: drop multicast to 224.0.0.1 (no log)'
-set firewall ipv4 name homelab-local rule 910 destination address '224.0.0.1'
-set firewall ipv4 name homelab-local rule 910 protocol '2'
+set firewall ipv4 name lab-local description 'From HOMELAB to LOCAL'
+set firewall ipv4 name lab-local default-action 'drop'
+set firewall ipv4 name lab-local enable-default-log
+set firewall ipv4 name lab-local rule 100 action 'accept'
+set firewall ipv4 name lab-local rule 100 description 'Rule: accept ntp'
+set firewall ipv4 name lab-local rule 100 destination port 'ntp'
+set firewall ipv4 name lab-local rule 100 protocol 'udp'
+set firewall ipv4 name lab-local rule 110 action 'accept'
+set firewall ipv4 name lab-local rule 110 description 'Rule: accept dhcp'
+set firewall ipv4 name lab-local rule 110 destination port 'bootps,bootpc'
+set firewall ipv4 name lab-local rule 110 protocol 'udp'
+set firewall ipv4 name lab-local rule 110 source port 'bootps,bootpc'
+set firewall ipv4 name lab-local rule 140 action 'accept'
+set firewall ipv4 name lab-local rule 140 description 'Rule: accept icmp'
+set firewall ipv4 name lab-local rule 140 protocol 'icmp'
+set firewall ipv4 name lab-local rule 150 action 'accept'
+set firewall ipv4 name lab-local rule 150 description 'Rule: accept bgp'
+set firewall ipv4 name lab-local rule 150 destination port 'bgp'
+set firewall ipv4 name lab-local rule 150 protocol 'tcp'
+set firewall ipv4 name lab-local rule 330 action 'accept'
+set firewall ipv4 name lab-local rule 330 description 'Rule: accept iperf'
+set firewall ipv4 name lab-local rule 330 destination port '5001'
+set firewall ipv4 name lab-local rule 330 protocol 'tcp'
+set firewall ipv4 name lab-local rule 350 action 'accept'
+set firewall ipv4 name lab-local rule 350 description 'Rule: accept prometheus metrics scrape'
+set firewall ipv4 name lab-local rule 350 destination group port-group 'prometheus-metrics'
+set firewall ipv4 name lab-local rule 350 protocol 'tcp'
+set firewall ipv4 name lab-local rule 450 action 'accept'
+set firewall ipv4 name lab-local rule 450 description 'Rule: accept_discovery_from_sonos_controllers'
+set firewall ipv4 name lab-local rule 450 destination port '1900,1901,1902,57621'
+set firewall ipv4 name lab-local rule 450 protocol 'udp'
+set firewall ipv4 name lab-local rule 450 source group address-group 'sonos-controllers'
+set firewall ipv4 name lab-local rule 910 action 'drop'
+set firewall ipv4 name lab-local rule 910 description 'Rule: drop multicast to 224.0.0.1 (no log)'
+set firewall ipv4 name lab-local rule 910 destination address '224.0.0.1'
+set firewall ipv4 name lab-local rule 910 protocol '2'
 
 # From HOMELAB to SERVERS
-set firewall ipv4 name homelab-servers description 'From HOMELAB to SERVERS'
-set firewall ipv4 name homelab-servers default-action 'accept'
+set firewall ipv4 name lab-servers description 'From HOMELAB to SERVERS'
+set firewall ipv4 name lab-servers default-action 'accept'
 
 # From HOMELAB to SERVICES
-set firewall ipv4 name homelab-services description 'From HOMELAB to SERVICES'
-set firewall ipv4 name homelab-services default-action 'accept'
+set firewall ipv4 name lab-services description 'From HOMELAB to SERVICES'
+set firewall ipv4 name lab-services default-action 'accept'
 
 # From HOMELAB to STAGING
-set firewall ipv4 name homelab-staging description 'From HOMELAB to STAGING'
-set firewall ipv4 name homelab-staging default-action 'accept'
+set firewall ipv4 name lab-staging description 'From HOMELAB to STAGING'
+set firewall ipv4 name lab-staging default-action 'accept'
 
 # From HOMELAB to TRUSTED
-set firewall ipv4 name homelab-trusted description 'From HOMELAB to TRUSTED'
-set firewall ipv4 name homelab-trusted default-action 'drop'
-set firewall ipv4 name homelab-trusted rule 140 action 'accept'
-set firewall ipv4 name homelab-trusted rule 140 description 'Rule: accept icmp'
-set firewall ipv4 name homelab-trusted rule 140 protocol 'icmp'
+set firewall ipv4 name lab-trusted description 'From HOMELAB to TRUSTED'
+set firewall ipv4 name lab-trusted default-action 'drop'
+set firewall ipv4 name lab-trusted rule 140 action 'accept'
+set firewall ipv4 name lab-trusted rule 140 description 'Rule: accept icmp'
+set firewall ipv4 name lab-trusted rule 140 protocol 'icmp'
 
 # From HOMELAB to WAN
-set firewall ipv4 name homelab-wan description 'From HOMELAB to WAN'
-set firewall ipv4 name homelab-wan default-action 'accept'
+set firewall ipv4 name lab-wan description 'From HOMELAB to WAN'
+set firewall ipv4 name lab-wan default-action 'accept'
 
 # From IOT to GUEST
 set firewall ipv4 name iot-guest description 'From IOT to GUEST'
@@ -350,33 +336,33 @@ set firewall ipv4 name iot-guest rule 421 protocol 'tcp'
 set firewall ipv4 name iot-guest rule 421 source group address-group 'sonos-players'
 
 # From IOT to HOMELAB
-set firewall ipv4 name iot-homelab description 'From IOT to HOMELAB'
-set firewall ipv4 name iot-homelab default-action 'drop'
-set firewall ipv4 name iot-homelab enable-default-log
-set firewall ipv4 name iot-homelab rule 370 action 'accept'
-set firewall ipv4 name iot-homelab rule 370 description 'Rule: accept plex users'
-set firewall ipv4 name iot-homelab rule 370 destination group address-group 'plex-server'
-set firewall ipv4 name iot-homelab rule 370 destination port '32400'
-set firewall ipv4 name iot-homelab rule 370 protocol 'tcp'
-set firewall ipv4 name iot-homelab rule 370 source group address-group 'plex-users'
-set firewall ipv4 name iot-homelab rule 420 action 'accept'
-set firewall ipv4 name iot-homelab rule 420 description 'Rule: accept_udp_from_sonos_players_to_sonos_controllers'
-set firewall ipv4 name iot-homelab rule 420 destination group address-group 'sonos-controllers'
-set firewall ipv4 name iot-homelab rule 420 destination port '319,320,30000-65535'
-set firewall ipv4 name iot-homelab rule 420 protocol 'udp'
-set firewall ipv4 name iot-homelab rule 420 source group address-group 'sonos-players'
-set firewall ipv4 name iot-homelab rule 421 action 'accept'
-set firewall ipv4 name iot-homelab rule 421 description 'Rule: accept_tcp_from_sonos_players_to_sonos_controllers'
-set firewall ipv4 name iot-homelab rule 421 destination group address-group 'sonos-controllers'
-set firewall ipv4 name iot-homelab rule 421 destination port '1400,3400,3401,3500,30000-65535'
-set firewall ipv4 name iot-homelab rule 421 protocol 'tcp'
-set firewall ipv4 name iot-homelab rule 421 source group address-group 'sonos-players'
-set firewall ipv4 name iot-homelab rule 460 action 'accept'
-set firewall ipv4 name iot-homelab rule 460 description 'Rule: accept_music_library_sonos_players'
-set firewall ipv4 name iot-homelab rule 460 destination group address-group 'sonos-library'
-set firewall ipv4 name iot-homelab rule 460 destination port '4534,http,https'
-set firewall ipv4 name iot-homelab rule 460 protocol 'tcp'
-set firewall ipv4 name iot-homelab rule 460 source group address-group 'sonos-players'
+set firewall ipv4 name iot-lab description 'From IOT to HOMELAB'
+set firewall ipv4 name iot-lab default-action 'drop'
+set firewall ipv4 name iot-lab enable-default-log
+set firewall ipv4 name iot-lab rule 370 action 'accept'
+set firewall ipv4 name iot-lab rule 370 description 'Rule: accept plex users'
+set firewall ipv4 name iot-lab rule 370 destination group address-group 'plex-server'
+set firewall ipv4 name iot-lab rule 370 destination port '32400'
+set firewall ipv4 name iot-lab rule 370 protocol 'tcp'
+set firewall ipv4 name iot-lab rule 370 source group address-group 'plex-users'
+set firewall ipv4 name iot-lab rule 420 action 'accept'
+set firewall ipv4 name iot-lab rule 420 description 'Rule: accept_udp_from_sonos_players_to_sonos_controllers'
+set firewall ipv4 name iot-lab rule 420 destination group address-group 'sonos-controllers'
+set firewall ipv4 name iot-lab rule 420 destination port '319,320,30000-65535'
+set firewall ipv4 name iot-lab rule 420 protocol 'udp'
+set firewall ipv4 name iot-lab rule 420 source group address-group 'sonos-players'
+set firewall ipv4 name iot-lab rule 421 action 'accept'
+set firewall ipv4 name iot-lab rule 421 description 'Rule: accept_tcp_from_sonos_players_to_sonos_controllers'
+set firewall ipv4 name iot-lab rule 421 destination group address-group 'sonos-controllers'
+set firewall ipv4 name iot-lab rule 421 destination port '1400,3400,3401,3500,30000-65535'
+set firewall ipv4 name iot-lab rule 421 protocol 'tcp'
+set firewall ipv4 name iot-lab rule 421 source group address-group 'sonos-players'
+set firewall ipv4 name iot-lab rule 460 action 'accept'
+set firewall ipv4 name iot-lab rule 460 description 'Rule: accept_music_library_sonos_players'
+set firewall ipv4 name iot-lab rule 460 destination group address-group 'sonos-library'
+set firewall ipv4 name iot-lab rule 460 destination port '4534,http,https'
+set firewall ipv4 name iot-lab rule 460 protocol 'tcp'
+set firewall ipv4 name iot-lab rule 460 source group address-group 'sonos-players'
 
 # From IOT to LAN
 set firewall ipv4 name iot-lan description 'From IOT to LAN'
@@ -457,9 +443,9 @@ set firewall ipv4 name lan-guest default-action 'drop'
 set firewall ipv4 name lan-guest enable-default-log
 
 # From LAN to HOMELAB
-set firewall ipv4 name lan-homelab description 'From LAN to HOMELAB'
-set firewall ipv4 name lan-homelab default-action 'drop'
-set firewall ipv4 name lan-homelab enable-default-log
+set firewall ipv4 name lan-lab description 'From LAN to HOMELAB'
+set firewall ipv4 name lan-lab default-action 'drop'
+set firewall ipv4 name lan-lab enable-default-log
 
 # From LAN to IOT
 set firewall ipv4 name lan-iot description 'From LAN to IOT'
@@ -546,25 +532,25 @@ set firewall ipv4 name local-guest rule 410 protocol 'udp'
 set firewall ipv4 name local-guest rule 410 source group address-group 'sonos-players'
 
 # From LOCAL to HOMELAB
-set firewall ipv4 name local-homelab description 'From LOCAL to HOMELAB'
-set firewall ipv4 name local-homelab default-action 'drop'
-set firewall ipv4 name local-homelab enable-default-log
-set firewall ipv4 name local-homelab rule 140 action 'accept'
-set firewall ipv4 name local-homelab rule 140 description 'Rule: accept icmp'
-set firewall ipv4 name local-homelab rule 140 protocol 'icmp'
-set firewall ipv4 name local-homelab rule 150 action 'accept'
-set firewall ipv4 name local-homelab rule 150 description 'Rule: accept bgp'
-set firewall ipv4 name local-homelab rule 150 destination port 'bgp'
-set firewall ipv4 name local-homelab rule 150 protocol 'tcp'
-set firewall ipv4 name local-homelab rule 310 action 'accept'
-set firewall ipv4 name local-homelab rule 310 description 'Rule: accept vector syslog'
-set firewall ipv4 name local-homelab rule 310 destination port '6003'
-set firewall ipv4 name local-homelab rule 310 protocol 'tcp'
-set firewall ipv4 name local-homelab rule 410 action 'accept'
-set firewall ipv4 name local-homelab rule 410 description 'Rule: accept_discovery_from_sonos_players'
-set firewall ipv4 name local-homelab rule 410 destination port '1900,1901,1902'
-set firewall ipv4 name local-homelab rule 410 protocol 'udp'
-set firewall ipv4 name local-homelab rule 410 source group address-group 'sonos-players'
+set firewall ipv4 name local-lab description 'From LOCAL to HOMELAB'
+set firewall ipv4 name local-lab default-action 'drop'
+set firewall ipv4 name local-lab enable-default-log
+set firewall ipv4 name local-lab rule 140 action 'accept'
+set firewall ipv4 name local-lab rule 140 description 'Rule: accept icmp'
+set firewall ipv4 name local-lab rule 140 protocol 'icmp'
+set firewall ipv4 name local-lab rule 150 action 'accept'
+set firewall ipv4 name local-lab rule 150 description 'Rule: accept bgp'
+set firewall ipv4 name local-lab rule 150 destination port 'bgp'
+set firewall ipv4 name local-lab rule 150 protocol 'tcp'
+set firewall ipv4 name local-lab rule 310 action 'accept'
+set firewall ipv4 name local-lab rule 310 description 'Rule: accept vector syslog'
+set firewall ipv4 name local-lab rule 310 destination port '6003'
+set firewall ipv4 name local-lab rule 310 protocol 'tcp'
+set firewall ipv4 name local-lab rule 410 action 'accept'
+set firewall ipv4 name local-lab rule 410 description 'Rule: accept_discovery_from_sonos_players'
+set firewall ipv4 name local-lab rule 410 destination port '1900,1901,1902'
+set firewall ipv4 name local-lab rule 410 protocol 'udp'
+set firewall ipv4 name local-lab rule 410 source group address-group 'sonos-players'
 
 # From LOCAL to IOT
 set firewall ipv4 name local-iot description 'From LOCAL to IOT'
@@ -662,8 +648,8 @@ set firewall ipv4 name servers-guest default-action 'drop'
 set firewall ipv4 name servers-guest enable-default-log
 
 # From SERVERS to HOMELAB
-set firewall ipv4 name servers-homelab description 'From SERVERS to HOMELAB'
-set firewall ipv4 name servers-homelab default-action 'accept'
+set firewall ipv4 name servers-lab description 'From SERVERS to HOMELAB'
+set firewall ipv4 name servers-lab default-action 'accept'
 
 # From SERVERS to IOT
 set firewall ipv4 name servers-iot description 'From SERVERS to IOT'
@@ -742,8 +728,8 @@ set firewall ipv4 name services-guest default-action 'drop'
 set firewall ipv4 name services-guest enable-default-log
 
 # From SERVICES to HOMELAB
-set firewall ipv4 name services-homelab description 'From SERVICES to HOMELAB'
-set firewall ipv4 name services-homelab default-action 'accept'
+set firewall ipv4 name services-lab description 'From SERVICES to HOMELAB'
+set firewall ipv4 name services-lab default-action 'accept'
 
 # From SERVICES to IOT
 set firewall ipv4 name services-iot description 'From SERVICES to IOT'
@@ -798,8 +784,8 @@ set firewall ipv4 name staging-guest default-action 'drop'
 set firewall ipv4 name staging-guest enable-default-log
 
 # From STAGING to HOMELAB
-set firewall ipv4 name staging-homelab description 'From STAGING to HOMELAB'
-set firewall ipv4 name staging-homelab default-action 'accept'
+set firewall ipv4 name staging-lab description 'From STAGING to HOMELAB'
+set firewall ipv4 name staging-lab default-action 'accept'
 
 # From STAGING to IOT
 set firewall ipv4 name staging-iot description 'From STAGING to IOT'
@@ -867,15 +853,15 @@ set firewall ipv4 name trusted-guest default-action 'drop'
 set firewall ipv4 name trusted-guest enable-default-log
 
 # From TRUSTED to HOMELAB
-set firewall ipv4 name trusted-homelab description 'From TRUSTED to HOMELAB'
-set firewall ipv4 name trusted-homelab default-action 'drop'
-set firewall ipv4 name trusted-homelab enable-default-log
-set firewall ipv4 name trusted-homelab rule 520 action 'accept'
-set firewall ipv4 name trusted-homelab rule 520 description 'Rule: accept scotte'
-set firewall ipv4 name trusted-homelab rule 520 source group address-group 'scotte-devices'
-set firewall ipv4 name trusted-homelab rule 530 action 'accept'
-set firewall ipv4 name trusted-homelab rule 530 description 'Rule: accept sophie'
-set firewall ipv4 name trusted-homelab rule 530 source group address-group 'sophie-devices'
+set firewall ipv4 name trusted-lab description 'From TRUSTED to HOMELAB'
+set firewall ipv4 name trusted-lab default-action 'drop'
+set firewall ipv4 name trusted-lab enable-default-log
+set firewall ipv4 name trusted-lab rule 520 action 'accept'
+set firewall ipv4 name trusted-lab rule 520 description 'Rule: accept scotte'
+set firewall ipv4 name trusted-lab rule 520 source group address-group 'scotte-devices'
+set firewall ipv4 name trusted-lab rule 530 action 'accept'
+set firewall ipv4 name trusted-lab rule 530 description 'Rule: accept sophie'
+set firewall ipv4 name trusted-lab rule 530 source group address-group 'sophie-devices'
 
 # From TRUSTED to IOT
 set firewall ipv4 name trusted-iot description 'From TRUSTED to IOT'
@@ -985,9 +971,9 @@ set firewall ipv4 name wan-guest default-action 'drop'
 set firewall ipv4 name wan-guest enable-default-log
 
 # From WAN to HOMELAB
-set firewall ipv4 name wan-homelab description 'From WAN to HOMELAB'
-set firewall ipv4 name wan-homelab default-action 'drop'
-set firewall ipv4 name wan-homelab enable-default-log
+set firewall ipv4 name wan-lab description 'From WAN to HOMELAB'
+set firewall ipv4 name wan-lab default-action 'drop'
+set firewall ipv4 name wan-lab enable-default-log
 
 # From WAN to IOT
 set firewall ipv4 name wan-iot description 'From WAN to IOT'

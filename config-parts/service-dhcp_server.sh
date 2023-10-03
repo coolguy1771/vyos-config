@@ -18,7 +18,7 @@ set service dhcp-server shared-network-name LAB authoritative
 set service dhcp-server shared-network-name LAB ping-check
 set service dhcp-server shared-network-name LAB domain-search '286k.co'
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 bootfile-name 'netboot.xyz.efi'
-set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 bootfile-server '10.10.0.1'
+set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 bootfile-server '10.1.237.1'
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 default-router '10.10.10.1'
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 domain-name '286k.co'
 set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 lease '86400'
@@ -63,19 +63,19 @@ set service dhcp-server shared-network-name LAB subnet 10.10.10.0/24 static-mapp
 
 # Lan Vlan
 
-set service dhcp-server shared-network-name LAN authoritative
-set service dhcp-server shared-network-name LAN ping-check
-set service dhcp-server shared-network-name LAN domain-search '286k.co'
-set service dhcp-server shared-network-name LAN subnet 10.10.0.0/24 bootfile-name 'netboot.xyz.efi'
-set service dhcp-server shared-network-name LAN subnet 10.10.0.0/24 bootfile-server '10.10.0.1'
-set service dhcp-server shared-network-name LAN subnet 10.10.0.0/24 default-router '10.10.0.1'
-set service dhcp-server shared-network-name LAN subnet 10.10.0.0/24 domain-name '286k.co'
-set service dhcp-server shared-network-name LAN subnet 10.10.0.0/24 lease '86400'
-set service dhcp-server shared-network-name LAN subnet 10.10.0.0/24 range 0 start '10.10.0.50'
-set service dhcp-server shared-network-name LAN subnet 10.10.0.0/24 range 0 stop '10.10.0.254'
+set service dhcp-server shared-network-name MGMT authoritative
+set service dhcp-server shared-network-name MGMT ping-check
+set service dhcp-server shared-network-name MGMT domain-search '286k.co'
+set service dhcp-server shared-network-name MGMT subnet 10.1.237.0/24 bootfile-name 'netboot.xyz.efi'
+set service dhcp-server shared-network-name MGMT subnet 10.1.237.0/24 bootfile-server '10.1.237.1'
+set service dhcp-server shared-network-name MGMT subnet 10.1.237.0/24 default-router '10.1.237.1'
+set service dhcp-server shared-network-name MGMT subnet 10.1.237.0/24 domain-name '286k.co'
+set service dhcp-server shared-network-name MGMT subnet 10.1.237.0/24 lease '86400'
+set service dhcp-server shared-network-name MGMT subnet 10.1.237.0/24 range 0 start '10.1.237.50'
+set service dhcp-server shared-network-name MGMT subnet 10.1.237.0/24 range 0 stop '10.1.237.254'
 
-set service dhcp-server shared-network-name LAN subnet 10.10.0.0/24 static-mapping abraham ip-address '10.10.0.11'
-set service dhcp-server shared-network-name LAN subnet 10.10.0.0/24 static-mapping abraham mac-address '94:60:D5:3A:5D:42'
+set service dhcp-server shared-network-name MGMT subnet 10.1.237.0/24 static-mapping decade ip-address '10.1.237.11'
+set service dhcp-server shared-network-name MGMT subnet 10.1.237.0/24 static-mapping decade mac-address '94:60:D5:3A:5D:42'
 
 # Wireless Vlan
 
@@ -83,7 +83,7 @@ set service dhcp-server shared-network-name WIRELESS authoritative
 set service dhcp-server shared-network-name WIRELESS ping-check
 set service dhcp-server shared-network-name WIRELESS domain-search '286k.co'
 set service dhcp-server shared-network-name WIRELESS subnet 10.10.20.0/24 bootfile-name 'netboot.xyz.efi'
-set service dhcp-server shared-network-name WIRELESS subnet 10.10.20.0/24 bootfile-server '10.10.0.1'
+set service dhcp-server shared-network-name WIRELESS subnet 10.10.20.0/24 bootfile-server '10.1.237.1'
 set service dhcp-server shared-network-name WIRELESS subnet 10.10.20.0/24 default-router '10.10.20.1'
 set service dhcp-server shared-network-name WIRELESS subnet 10.10.20.0/24 domain-name '286k.co'
 set service dhcp-server shared-network-name WIRELESS subnet 10.10.20.0/24 lease '86400'

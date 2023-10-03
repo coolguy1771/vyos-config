@@ -5,22 +5,16 @@ set interfaces ethernet eth0 description 'WAN - Fiber'
 set interfaces ethernet eth0 hw-id '3c:ec:ef:c3:80:74'
 set interfaces ethernet eth0 address 'dhcp'
 
-set interfaces ethernet eth1 description 'LAN'
 set interfaces ethernet eth1 hw-id '3c:ec:ef:c3:80:75'
-set interfaces ethernet eth1 address '10.10.0.1/24'
 
 # VLANs
-set interfaces ethernet eth1 vif 10 address '10.10.10.1/24'
-set interfaces ethernet eth1 vif 10 description 'LAB'
-set interfaces ethernet eth1 vif 20 address '10.10.20.1/24'
-set interfaces ethernet eth1 vif 20 description 'WIRELESS'
-set interfaces ethernet eth1 vif 30 address '10.10.30.1/24'
-set interfaces ethernet eth1 vif 30 description 'GUEST'
 set interfaces loopback lo
 
 set interfaces bonding bond0 mode 802.3ad
 set interfaces bonding bond0 member interface eth2
 set interfaces bonding bond0 member interface eth3
+set interfaces ethernet bond0 description 'LAN'
+set interfaces ethernet bond0 address '10.1.237.1/24'
 
 set interfaces wireguard wg80 address '10.10.80.1/24'
 set interfaces wireguard wg80 description 'WIREGUARD'

@@ -48,7 +48,7 @@ endpoints:
     dns:
       query-name: vyos.286k.co
       query-type: A
-    conditions: ["[BODY] == 10.10.0.1", "[DNS_RCODE] == NOERROR"]
+    conditions: ["[BODY] == 10.1.237.1", "[DNS_RCODE] == NOERROR"]
   #
   # Devices group
   #
