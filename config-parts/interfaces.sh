@@ -11,10 +11,10 @@ set interfaces ethernet eth1 hw-id '3c:ec:ef:c3:80:75'
 set interfaces loopback lo
 
 set interfaces bonding bond0 mode 802.3ad
-set interfaces bonding bond0 member interface eth2
-set interfaces bonding bond0 member interface eth3
-set interfaces ethernet bond0 description 'LAN'
-set interfaces ethernet bond0 address '10.1.237.1/24'
+set interfaces bonding bond0 member interface eth4
+set interfaces bonding bond0 member interface eth5
+set interfaces bonding bond0 description 'LAN'
+set interfaces bonding bond0 vif 237 address '10.1.237.1/24'
 
 set interfaces wireguard wg80 address '10.10.80.1/24'
 set interfaces wireguard wg80 description 'WIREGUARD'

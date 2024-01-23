@@ -5,12 +5,6 @@ set service https api debug
 set service https virtual-host default listen-address '0.0.0.0'
 set service https virtual-host default listen-port '8443'
 
-#MDNS
-
-set service mdns repeater interface 'eth1'
-set service mdns repeater interface 'eth1.10'
-set service mdns repeater interface 'eth1.20'
-set service mdns repeater interface 'eth1.30'
 
 # MONITORING
 

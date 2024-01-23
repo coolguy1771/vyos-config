@@ -14,7 +14,7 @@ set container network containers prefix '10.10.254.0/24'
 # cloudflare-ddns
 set container name cloudflare-ddns allow-host-networks
 set container name cloudflare-ddns environment CF_API_TOKEN value "${SECRET_CLOUDFLARE_TOKEN}"
-set container name cloudflare-ddns environment DOMAINS value 'home.witl.xyz,wg.witl.xyz,ipv4.icbplays.net'
+set container name cloudflare-ddns environment DOMAINS value 'home.witl.xyz,wg.witl.xyz'
 set container name cloudflare-ddns environment TZ value 'America/New_York'
 set container name cloudflare-ddns environment PGID value "1000"
 set container name cloudflare-ddns environment PUID value "1000"
@@ -68,16 +68,6 @@ set container name dnsdist volume config source '/config/containers/dnsdist/conf
 set container name dnsdist volume config destination '/etc/dnsdist/dnsdist.conf'
 set container name dnsdist volume config mode 'ro'
 
-# Frr_exporter
-
-set container name frr-exporter allow-host-networks
-set container name frr-exporter image 'docker.io/tynany/frr_exporter:v1.2.0'
-set container name frr-exporter memory '0'
-set container name frr-exporter shared-memory '0'
-set container name frr-exporter volume frr-exporter-varfs destination '/var/run/frr'
-set container name frr-exporter volume frr-exporter-varfs mode 'ro'
-set container name frr-exporter volume frr-exporter-varfs source '/var/run/frr'
-
 # K8s-lb
 
 set container name k8s-lb cap-add 'net-bind-service'
@@ -92,7 +82,7 @@ set container name k8s-lb volume k8s-lb-config source '/config/containers/k8s-lb
 # Netboot-xyz
 
 set container name netboot-xyz allow-host-networks
-set container name netboot-xyz image 'ghcr.io/netbootxyz/netbootxyz:0.6.7-nbxyz25'
+set container name netboot-xyz image 'ghcr.io/netbootxyz/netbootxyz:0.7.0-nbxyz2'
 set container name netboot-xyz memory '0'
 set container name netboot-xyz shared-memory '0'
 
@@ -211,3 +201,13 @@ set container name speedtest-exporter memory '0'
 set container name speedtest-exporter allow-host-networks
 set container name speedtest-exporter restart 'on-failure'
 set container name speedtest-exporter shared-memory '0'
+
+
+set container name tailscale image 'ghcr.io/tailscale/tailscale:v1.54.1'
+set container name tailscale allow-host-networks
+set container name tailscale memory '0'
+set container name tailscale restart 'on-failure'
+set container name tailscale shared-memory '0'
+set container name tailscale environment TS_AUTHKEY value ${SECRET_TAILSCALE_KEY}
+set container name tailscale environment TS_HOSTNAME value 'vyos-container'
+set container name tailscale environment TS_ROUTES value '10.1.237.0/24,10.10.10.0/24,10.10.20.0/24,10.0.42.0/24,10.0.42.3/24'
