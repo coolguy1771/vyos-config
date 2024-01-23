@@ -71,7 +71,7 @@ set container name dnsdist volume config mode 'ro'
 # K8s-lb
 
 set container name k8s-lb cap-add 'net-bind-service'
-set container name k8s-lb image 'public.ecr.aws/docker/library/haproxy:2.9.1-alpine'
+set container name k8s-lb image 'public.ecr.aws/docker/library/haproxy:2.9.3-alpine'
 set container name k8s-lb memory '0'
 set container name k8s-lb network containers address '10.10.254.3'
 set container name k8s-lb shared-memory '0'
