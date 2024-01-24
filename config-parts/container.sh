@@ -203,7 +203,7 @@ set container name speedtest-exporter restart 'on-failure'
 set container name speedtest-exporter shared-memory '0'
 
 
-set container name tailscale image 'ghcr.io/tailscale/tailscale:v1.54.1'
+set container name tailscale image 'ghcr.io/tailscale/tailscale:v1.56.1'
 set container name tailscale allow-host-networks
 set container name tailscale memory '0'
 set container name tailscale restart 'on-failure'
