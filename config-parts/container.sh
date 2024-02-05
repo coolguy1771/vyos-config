@@ -211,3 +211,4 @@ set container name tailscale shared-memory '0'
 set container name tailscale environment TS_AUTHKEY value ${SECRET_TAILSCALE_KEY}
 set container name tailscale environment TS_HOSTNAME value 'vyos-container'
 set container name tailscale environment TS_ROUTES value '10.1.237.0/24,10.10.10.0/24,10.10.20.0/24,10.0.42.0/24,10.0.42.3/24'
+set container name tailscale enviornment TS_ACCEPT_DNS value 'false'

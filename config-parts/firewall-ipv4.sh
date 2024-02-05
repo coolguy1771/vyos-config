@@ -103,8 +103,6 @@ set firewall ipv4 name wan-local rule 100 description 'Rule: accept_wireguard'
 set firewall ipv4 name wan-local rule 100 destination port '51820'
 set firewall ipv4 name wan-local rule 100 protocol 'udp'
 
-
-
 # From WAN to CONTAINERS
 set firewall ipv4 name wan-containers default-action 'drop'
 set firewall ipv4 name wan-containers description 'From WAN to CONTAINERS'

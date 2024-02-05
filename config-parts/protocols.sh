@@ -53,9 +53,9 @@ set protocols bgp neighbor 10.10.10.68 address-family ipv4-unicast
 set protocols bgp neighbor 10.10.10.68 description 'venus'
 set protocols bgp neighbor 10.10.10.68 remote-as '64512'
 
-set protocols bgp neighbor 10.10.10.113 address-family ipv4-unicast
-set protocols bgp neighbor 10.10.10.113 description 'venus'
-set protocols bgp neighbor 10.10.10.113 remote-as '64512'
+set protocols bgp neighbor 10.10.10.121 address-family ipv4-unicast
+set protocols bgp neighbor 10.10.10.121 description 'osiris'
+set protocols bgp neighbor 10.10.10.121 remote-as '64512'
 
 set protocols bgp parameters router-id '10.1.237.1'
 set protocols bgp system-as '64512'
