@@ -82,7 +82,7 @@ set container name k8s-lb volume k8s-lb-config source '/config/containers/k8s-lb
 # Netboot-xyz
 
 set container name netboot-xyz allow-host-networks
-set container name netboot-xyz image 'ghcr.io/netbootxyz/netbootxyz:0.7.0-nbxyz2'
+set container name netboot-xyz image 'ghcr.io/netbootxyz/netbootxyz:0.7.1-nbxyz2'
 set container name netboot-xyz memory '0'
 set container name netboot-xyz shared-memory '0'
 
