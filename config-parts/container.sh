@@ -42,7 +42,7 @@ set container name lego-auto volume datadir mode 'rw'
 
 # bind
 set container name bind cap-add 'net-bind-service'
-set container name bind image 'docker.io/internetsystemsconsortium/bind9:9.19'
+set container name bind image 'docker.io/internetsystemsconsortium/bind9:9.20'
 set container name bind command '/usr/sbin/named -4 -f -c /etc/bind/named.conf -u bind'
 set container name bind memory '0'
 set container name bind network containers address '10.10.254.8'
