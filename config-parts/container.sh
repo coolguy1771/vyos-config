@@ -179,7 +179,7 @@ set container name onepassword-sync volume data mode 'rw'
 # gatus
 set container name gatus cap-add 'net-bind-service'
 set container name gatus cap-add 'net-raw'
-set container name gatus image 'ghcr.io/twin/gatus:v5.11.0'
+set container name gatus image 'ghcr.io/twin/gatus:v5.12.1'
 set container name gatus memory '0'
 set container name gatus network containers address '10.10.254.7'
 set container name gatus shared-memory '0'
